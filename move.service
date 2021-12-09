@@ -1,0 +1,11 @@
+[Unit]
+Description=Check some folder1 and move any new files from it to folder2
+
+[Service]
+User=root
+WorkingDirectory=/var/
+ExecStart=/bin/bash -c 'while true; do mv -fv folder1/* folder2 2>/dev/null; sleep 3; done'
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
